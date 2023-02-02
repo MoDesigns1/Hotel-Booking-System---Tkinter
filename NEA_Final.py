@@ -152,7 +152,8 @@ def delete19():
 	screen18.destroy()
 
 def delete20():
-	screen20.destroy()
+	#screen20.destroy()
+	pass
 
 def delete21():
 	screen21.destroy()
@@ -900,9 +901,9 @@ def successBooking():
 	conn.close()
 	port = 587  # For starttls
 	smtp_server = "smtp.gmail.com"
-	sender_email = "bookings.infinityhotels@gmail.com"
+	sender_email = ""
 	receiver_email = str(emailReceiver)
-	password = "infinityhotels123"
+	password = ""
 	message = """\
 	Subject: Hi There
 
