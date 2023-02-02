@@ -4,7 +4,6 @@ from datetime import *
 import datetime, time
 import os
 import re
-import phonenumbers
 import requests
 import json
 import sqlite3
@@ -1061,64 +1060,64 @@ def noBookings():
 
 
 def account_details():
-    global screen10
-    global currentUser
-    cur.execute("SELECT lname FROM mydatabase1 WHERE user_name = (:username_placeholder4)",
-    	{
-    				'username_placeholder4':username_verify.get()
-    	})
-    lastname = cur.fetchall()
-    result4 = []
-    for x in lastname:
-    	temp_lname = str(x).replace('(',"").replace(',',"").replace(')',"")
-    	result4.append(str(temp_lname))
-    global lname_shown
-    lname_shown = result4[0]
-    fullname = str(fname_shown + " " + lname_shown)
-    screen6.attributes('-topmost',False)
-    screen10 = Toplevel(screen6)
-    screen10.title('Account Details')
-    screen10.geometry("400x400")
-    screen10.iconbitmap('hotel.ico')
-    currentUser=username1
-    Label(screen10, text = "Account Details", fg = "black", bg = "grey", width = "500", height = "3").pack()
-    Label(screen10, text = "").pack()
-    Label(screen10, text = "Full Name:   " + fullname.replace("''","").replace("'",""), font = ('Calibri', 14)).pack()
-    Label(screen10, text = "").pack()
-    Label(screen10, text = "Your username:   " + username1, font = ('Calibri', 14)).pack()
-    Label(screen10, text = "").pack()
-    Label(screen10, text = "Your password:   " + password1, font = ('Calibri', 14)).pack()
-    Label(screen10, text = "").pack()
-    cur.execute("SELECT myemail FROM mydatabase1 WHERE user_name = (:username_placeholder1)",
-              {
-                    'username_placeholder1': username_verify.get()
-              })
-    emails =  cur.fetchall()
-    result1 = []
-    for row1 in emails:
-        temp_email = str(row1).replace('(', "").replace(',', "").replace(')', "")
-        result1.append(str(temp_email))
-    cur.execute("SELECT myphone FROM mydatabase1 WHERE user_name = (:username_placeholder2)",
-              {
-                    'username_placeholder2': username_verify.get()
-              })
-    phones =  cur.fetchall()
-    result2 = []
-    for row2 in phones:
-        temp_phone = str(row2).replace('(', "").replace(',', "").replace(')', "")
-        result2.append(str(temp_phone))
-    conn.commit()
-    conn.close()
-    global email_shown
-    email_shown = result1[0]
-    phone_shown = result2[0]
-    Label(screen10, text = "Your email:   " + email_shown.replace("'", ""), font = ('Calibri', 14)).pack()
-    Label(screen10, text = "").pack()
-    Label(screen10, text = "Your phone:   " + phone_shown.replace("'", ""), font = ('Calibri', 14)).pack()
-    Label(screen10, text = "").pack()
-    Button(screen10, text = "Delete Account", fg = 'white', bg = 'black', command = delAccount).pack()
-    Label(screen10, text = "").pack()
-    Button(screen10, text = "Return to main screen", command=delete10).pack()
+	global screen10
+	global currentUser
+	cur.execute("SELECT lname FROM mydatabase1 WHERE user_name = (:username_placeholder4)",
+		{
+					'username_placeholder4':username_verify.get()
+		})
+	lastname = cur.fetchall()
+	result4 = []
+	for x in lastname:
+		temp_lname = str(x).replace('(',"").replace(',',"").replace(')',"")
+		result4.append(str(temp_lname))
+	global lname_shown
+	lname_shown = result4[0]
+	fullname = str(fname_shown + " " + lname_shown)
+	screen6.attributes('-topmost',False)
+	screen10 = Toplevel(screen6)
+	screen10.title('Account Details')
+	screen10.geometry("400x400")
+	screen10.iconbitmap('hotel.ico')
+	currentUser=username1
+	Label(screen10, text = "Account Details", fg = "black", bg = "grey", width = "500", height = "3").pack()
+	Label(screen10, text = "").pack()
+	Label(screen10, text = "Full Name:   " + fullname.replace("''","").replace("'",""), font = ('Calibri', 14)).pack()
+	Label(screen10, text = "").pack()
+	Label(screen10, text = "Your username:   " + username1, font = ('Calibri', 14)).pack()
+	Label(screen10, text = "").pack()
+	Label(screen10, text = "Your password:   " + password1, font = ('Calibri', 14)).pack()
+	Label(screen10, text = "").pack()
+	cur.execute("SELECT myemail FROM mydatabase1 WHERE user_name = (:username_placeholder1)",
+				{
+					'username_placeholder1': username_verify.get()
+				})
+	emails =  cur.fetchall()
+	result1 = []
+	for row1 in emails:
+		temp_email = str(row1).replace('(', "").replace(',', "").replace(')', "")
+		result1.append(str(temp_email))
+	cur.execute("SELECT myphone FROM mydatabase1 WHERE user_name = (:username_placeholder2)",
+				{
+					'username_placeholder2': username_verify.get()
+				})
+	phones =  cur.fetchall()
+	result2 = []
+	for row2 in phones:
+		temp_phone = str(row2).replace('(', "").replace(',', "").replace(')', "")
+		result2.append(str(temp_phone))
+	conn.commit()
+	conn.close()
+	global email_shown
+	email_shown = result1[0]
+	phone_shown = result2[0]
+	Label(screen10, text = "Your email:   " + email_shown.replace("'", ""), font = ('Calibri', 14)).pack()
+	Label(screen10, text = "").pack()
+	Label(screen10, text = "Your phone:   " + phone_shown.replace("'", ""), font = ('Calibri', 14)).pack()
+	Label(screen10, text = "").pack()
+	Button(screen10, text = "Delete Account", fg = 'white', bg = 'black', command = delAccount).pack()
+	Label(screen10, text = "").pack()
+	Button(screen10, text = "Return to main screen", command=delete10).pack()
 
     
 def error():
@@ -1167,45 +1166,45 @@ def login_success():
     Button(screen3, text = "Ok", command = delete2).pack()
 
 def session():
-    global screen6
-    screen6 = Tk()
-    screen6.attributes('-topmost',True)
-    screen6.title("Dashboard")
-    screen6.geometry("400x400")
-    screen6.iconbitmap('hotel.ico')
-    conn = sqlite3.connect('database.db')
-    cur =  conn.cursor()
-    cur.execute("SELECT fname FROM mydatabase1 WHERE user_name = (:username_placeholder3)",
-    	{
-    				'username_placeholder3':username_verify.get()
-    	})
-    firstname = cur.fetchall()
-    result3 = []
-    for x in firstname:
-    	temp_fname = str(x).replace('(',"").replace(',',"").replace(')',"")
-    	result3.append(str(temp_fname))
-    global fname_shown
-    fname_shown = result3[0]
-    fname_shown = fname_shown.replace("'","")
-    conn.close()
-    Label(screen6, text = "Welcome to the dashboard, " + fname_shown , fg = "black", bg = "grey", width = "500", height = "3").pack()
-    Button(screen6, text = "Go to Booking Page", command = booking_page).pack() 
-    Label(screen6, text = "").pack()
-    Button(screen6, text = "View Hotels", command = view_hotels).pack() 
-    Label(screen6, text = "").pack()
-    Button(screen6, text = "View Latest Booking", command = latest_bookings).pack() 
-    Label(screen6, text = "").pack()
-    Button(screen6, text = "View Account Details", command = account_details).pack()   
-    Label(screen6, text = "").pack()
-    Label(screen6, text = "To start a booking:").pack()
-    Label(screen6, text = "- Click on Go to Booking Page").pack()
-    Label(screen6, text = "- To view all our hotels press View Hotels").pack()
-    Label(screen6, text = "- Check if your booking is confirmed by looking at your latest one").pack()
-    Label(screen6, text = "- And to alter / check your account, click on account details").pack()
-    Label(screen6, text = "").pack()
-    Button(screen6, text = "Log Out", command = delete8).pack()
-    delete7()
-    screen6.mainloop()
+	global screen6
+	screen6 = Tk()
+	screen6.attributes('-topmost',True)
+	screen6.title("Dashboard")
+	screen6.geometry("400x400")
+	screen6.iconbitmap('hotel.ico')
+	conn = sqlite3.connect('database.db')
+	cur =  conn.cursor()
+	cur.execute("SELECT fname FROM mydatabase1 WHERE user_name = (:username_placeholder3)",
+		{
+					'username_placeholder3':username_verify.get()
+		})
+	firstname = cur.fetchall()
+	result3 = []
+	for x in firstname:
+		temp_fname = str(x).replace('(',"").replace(',',"").replace(')',"")
+		result3.append(str(temp_fname))
+	global fname_shown
+	fname_shown = result3[0]
+	fname_shown = fname_shown.replace("'","")
+	conn.close()
+	Label(screen6, text = "Welcome to the dashboard, " + fname_shown , fg = "black", bg = "grey", width = "500", height = "3").pack()
+	Button(screen6, text = "Go to Booking Page", command = booking_page).pack() 
+	Label(screen6, text = "").pack()
+	Button(screen6, text = "View Hotels", command = view_hotels).pack() 
+	Label(screen6, text = "").pack()
+	Button(screen6, text = "View Latest Booking", command = latest_bookings).pack() 
+	Label(screen6, text = "").pack()
+	Button(screen6, text = "View Account Details", command = account_details).pack()   
+	Label(screen6, text = "").pack()
+	Label(screen6, text = "To start a booking:").pack()
+	Label(screen6, text = "- Click on Go to Booking Page").pack()
+	Label(screen6, text = "- To view all our hotels press View Hotels").pack()
+	Label(screen6, text = "- Check if your booking is confirmed by looking at your latest one").pack()
+	Label(screen6, text = "- And to alter / check your account, click on account details").pack()
+	Label(screen6, text = "").pack()
+	Button(screen6, text = "Log Out", command = delete8).pack()
+	delete7()
+	screen6.mainloop()
 
 def blank_error():
 	global screen17
@@ -1235,37 +1234,37 @@ def user_not_found():
     Button(screen5, text = "Ok", command = delete4).pack()
 
 def register_verify():
-    global username_info
-    global password_info
-    global email_info       
-    global phone_info
-    global lname_info
-    global fname_info
-    username_info = username.get()
-    password_info = password.get()
-    email_info = email.get()
-    phone_info = phone.get()
-    fname_info = fname.get()
-    lname_info = lname.get()
-    if username_info == "" or password_info == "" or fname_info == "" or lname_info == "" or email_info == "" or phone_info == "":
-    	blank_error()
-    elif username_info  == "" or username_check(username_info) == True or len(username_info) <= 4:
-        user_error()
-    elif user_exists_check() == True:
-    	user_taken()
-    elif password_info == "" or check_pass(password_info) == False or len(password_info) <= 6:
-        error()
-    elif fname_info == "" or fname_check(fname_info) == False or len(fname_info) == 1:
-    	name_error()
-    elif lname_info == "" or lname_check(lname_info) == False or len(lname_info) == 1:
-    	name_error()
-    elif email_verify_api(email_info) == False:
-        error_email()
-    elif phone_check(phone_info) == False:
-        error()
-    else:
-        submit_register()
-        Label(screen1, text = "Registration Successful",bg="#222831",fg='green', font = ("Calibri", 11)).pack()
+	global username_info
+	global password_info
+	global email_info       
+	global phone_info
+	global lname_info
+	global fname_info
+	username_info = username.get()
+	password_info = password.get()
+	email_info = email.get()
+	phone_info = phone.get()
+	fname_info = fname.get()
+	lname_info = lname.get()
+	if username_info == "" or password_info == "" or fname_info == "" or lname_info == "" or email_info == "" or phone_info == "":
+		blank_error()
+	elif username_info  == "" or username_check(username_info) == True or len(username_info) <= 4:
+		user_error()
+	elif user_exists_check() == True:
+		user_taken()
+	elif password_info == "" or check_pass(password_info) == False or len(password_info) <= 6:
+		error()
+	elif fname_info == "" or fname_check(fname_info) == False or len(fname_info) == 1:
+		name_error()
+	elif lname_info == "" or lname_check(lname_info) == False or len(lname_info) == 1:
+		name_error()
+	elif email_verify_api(email_info) == False:
+		error_email()
+	elif phone_check(phone_info) == False:
+		error()
+	else:
+		submit_register()
+		Label(screen1, text = "Registration Successful",bg="#222831",fg='green', font = ("Calibri", 11)).pack()
         
     
 def hotelOptions():
@@ -1365,48 +1364,48 @@ def submit_register():
     phone_entry.delete(0, END)    
 
 def login_verify():
-    global usernames
-    global passwords
-    global password1
-    global database1
-    global username1
-    global username_query
-    global username_oid
-    username1 = username_verify.get()
-    password1 = password_verify.get()
-    if username1 == "":
-    	user_not_found()
-    	return
-    elif password1 == "":
-    	password_error()
-    	return
-    conn = sqlite3.connect('database.db')
-    cur = conn.cursor()
+	global usernames
+	global passwords
+	global password1
+	global database1
+	global username1
+	global username_query
+	global username_oid
+	username1 = username_verify.get()
+	password1 = password_verify.get()
+	if username1 == "":
+		user_not_found()
+		return
+	elif password1 == "":
+		password_error()
+		return
+	conn = sqlite3.connect('database.db')
+	cur = conn.cursor()
 
-    cur.execute("SELECT user_name from mydatabase1 WHERE user_name = (:username_placeholder)",
-              {
-                    'username_placeholder': username_verify.get()
-              })
-    username_query = cur.fetchall()
-    cur.execute("SELECT oid from mydatabase1 WHERE user_name = (:username_placeholder4)",
-              {
-                    'username_placeholder4': username_verify.get()
-              })
-    username_oid = cur.fetchall()
-    global temp_oid1
-    sql_user_v()
-    if sql_user_v() == True:
-        result = []
-        for row in username_oid:
-        	temp_oid = str(row).replace('(', "").replace(',', "").replace(')', "")
-        	result.append(float(temp_oid))
-        	temp_oid1 = StringVar()
-        	temp_oid1.set(temp_oid)
-        	conn.commit()
-        	conn.close()
-        	password_sql_check()
-    else:
-        user_not_found()
+	cur.execute("SELECT user_name from mydatabase1 WHERE user_name = (:username_placeholder)",
+				{
+					'username_placeholder': username_verify.get()
+				})
+	username_query = cur.fetchall()
+	cur.execute("SELECT oid from mydatabase1 WHERE user_name = (:username_placeholder4)",
+				{
+					'username_placeholder4': username_verify.get()
+				})
+	username_oid = cur.fetchall()
+	global temp_oid1
+	sql_user_v()
+	if sql_user_v() == True:
+		result = []
+		for row in username_oid:
+			temp_oid = str(row).replace('(', "").replace(',', "").replace(')', "")
+			result.append(float(temp_oid))
+			temp_oid1 = StringVar()
+			temp_oid1.set(temp_oid)
+			conn.commit()
+			conn.close()
+			password_sql_check()
+	else:
+		user_not_found()
 
 
 def sql_user_v():
