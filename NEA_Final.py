@@ -9,11 +9,17 @@ import json
 import sqlite3
 import random
 import smtplib, ssl
+import json
 from PIL import ImageTk,Image
 
 access_key = 'cc2317434d156e394c992cec80841e99' #for phone API in the function phone_info
 access_key_email = '2539242dc1a05bf6cb3d5972cfb12e03' # API key for email verify function
 regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$' #reference: https://www.geeksforgeeks.org/check-if-email-address-valid-or-not-in-python/
+
+with open("config.json", "r") as f:
+	config = json.load(f)
+	print("Config loaded")
+
 #Connect to the database
 conn = sqlite3.connect('database.db') # connection to the SQL database
 #Create a cursor
@@ -901,9 +907,9 @@ def successBooking():
 	conn.close()
 	port = 587  # For starttls
 	smtp_server = "smtp.gmail.com"
-	sender_email = ""
+	sender_email = config['email']
 	receiver_email = str(emailReceiver)
-	password = ""
+	password = config['password']
 	message = """\
 	Subject: Hi There
 
