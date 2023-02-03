@@ -1,4 +1,4 @@
-# Hotel-Booking-System---Tkinter
+# Hotel Booking System using Tkinter
 
 Need to install all prerequisites using `pip install`
 
