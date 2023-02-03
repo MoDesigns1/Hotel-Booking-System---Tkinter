@@ -61,6 +61,8 @@ conn.commit()
 
 conn.commit()
 
+conn.close()
+
 
 def BookNow1():
 	screen21.destroy()
