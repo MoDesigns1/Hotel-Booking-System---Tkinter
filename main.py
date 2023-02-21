@@ -210,7 +210,7 @@ def name_error():
 	screen14 = Toplevel(screen)
 	screen14.geometry("200x90")
 	screen14.title("Warning!")
-	screen14.iconbitmap('error.ico')
+	#screen14.iconbitmap('error.ico')
 	Label(screen14, text = "First/Last Name entered incorrectly", fg = "red").pack()
 	Button(screen14, text = "Ok", command = delete11).pack()
 
@@ -229,7 +229,7 @@ def user_error():
     screen11 = Toplevel(screen)
     screen11.title("Username Error")
     screen11.geometry("200x100")
-    screen11.iconbitmap('error.ico')
+    #screen11.iconbitmap('error.ico')
     Label(screen11, text = "Username inputted contains error").pack()
     Button(screen11, text = "Ok", command = delete9).pack()
 
@@ -238,7 +238,7 @@ def user_taken():
 	screen15 = Toplevel(screen)
 	screen15.title("Username Taken Error")
 	screen15.geometry("200x100")
-	screen15.iconbitmap('error.ico')
+	#screen15.iconbitmap('error.ico')
 	Label(screen15, text = "Username is taken").pack()
 	Button(screen15, text = "Ok", command = delete15)
 
@@ -281,7 +281,7 @@ def delAccount():
 	screen16 = Toplevel(screen10)
 	screen16.title("Delete Account")
 	screen16.geometry("250x100")
-	screen16.iconbitmap('bin.ico')
+	#screen16.iconbitmap('bin.ico')
 	Label(screen16, text = "NOTE: Account will be permanently deleted").pack()
 	Label(screen16, text = "This action cannot be reversed").pack()
 	Button(screen16, text = "Continue", fg = 'red', command = delAccConfirmed).pack()
@@ -315,7 +315,7 @@ def view_hotels():
     screen6.attributes('-topmost',False)
     screen9 = Tk()
     screen9.title('View Hotels')
-    screen9.iconbitmap('hotel.ico')
+    #screen9.iconbitmap('hotel.ico')
     screen9.geometry("800x700")
     #screen9.attributes("-topmost",True)
     Button(screen9, text = "Press to go back", fg = "red", command = delete12).pack()
@@ -366,7 +366,8 @@ def searchResult():
 	global screen18
 	screen18 = Toplevel(screen6)
 	screen18.title("Search Result")
-	screen18.iconbitmap('hotel.ico')
+	
+	#screen18.iconbitmap('hotel.ico')
 	screen18.geometry("400x680")
 	Button(screen18, text = "Go Back to Main Page", command= delete19).pack()
 	Label(screen18, text = "Below are the results of your search.", fg = "black", bg = "grey", width = "500", height = "3").pack()
@@ -408,7 +409,7 @@ def hotel1():
 	global screen21
 	screen21 = Tk()
 	screen21.title("Adiance Hotel")
-	screen21.iconbitmap('hotel.ico')
+	#screen21.iconbitmap('hotel.ico')
 	screen21.geometry("750x650")
 	screen21.config(bg="#222831")
 	Button(screen21, text = "Go back to search results",  command = delete21, fg = '#ff2e63', bg = '#393e46').place(x=10,y=600)
@@ -479,7 +480,7 @@ def hotel2():
 	global screen22
 	screen22 = Tk()
 	screen22.title("Azure Holidays")
-	screen22.iconbitmap('hotel.ico')
+	#screen22.iconbitmap('hotel.ico')
 	screen22.geometry("750x650")
 	screen22.config(bg="#222831")
 	Button(screen22, text = "Go back to search results",command = delete22, fg = '#ff2e63', bg = '#393e46').place(x=10,y=600)
@@ -551,7 +552,7 @@ def hotel3():
 	global screen23
 	screen23 = Tk()
 	screen23.title("Collosall Resort")
-	screen23.iconbitmap('hotel.ico')
+	#screen23.iconbitmap('hotel.ico')
 	screen23.geometry("750x650")
 	screen23.config(bg="#222831")
 	Button(screen23, text = "Go back to search results",command = delete23, fg = '#ff2e63', bg = '#393e46').place(x=10,y=600)
@@ -622,7 +623,7 @@ def hotel4():
 	global screen24
 	screen24 = Tk()
 	screen24.title("Floorcoast Hotel")
-	screen24.iconbitmap('hotel.ico')
+	#screen24.iconbitmap('hotel.ico')
 	screen24.geometry("750x650")
 	screen24.config(bg="#222831")
 	Button(screen24, text = "Go back to search results",command = delete24, fg = '#ff2e63', bg = '#393e46').place(x=10,y=600)
@@ -693,7 +694,7 @@ def hotel5():
 	global screen25
 	screen25 = Tk()
 	screen25.title("Four Seasons")
-	screen25.iconbitmap('hotel.ico')
+	#screen25.iconbitmap('hotel.ico')
 	screen25.geometry("750x650")
 	screen25.config(bg="#222831")
 	Button(screen25, text = "Go back to search results",command = delete25, fg = '#ff2e63', bg = '#393e46').place(x=10,y=600)
@@ -871,7 +872,7 @@ def successBooking():
 	bookingscreen.destroy()
 	BkScreen.title('Success Booking')
 	BkScreen.geometry('400x200')
-	BkScreen.iconbitmap('hotel.ico')
+	#BkScreen.iconbitmap('hotel.ico')
 	BkScreen.config(bg="#222831")
 	Label(BkScreen, text = "Successful Booking", fg = '#8F8A89', bg = "#32e0c4", width = "500", height = "3").pack()
 	Label(BkScreen, text = "",bg="#222831", fg = 'white').pack()
@@ -951,7 +952,7 @@ def booking_page():
 	screen6.attributes('-topmost',False)
 	bookingscreen = Tk()
 	bookingscreen.title('Booking Page')
-	bookingscreen.iconbitmap('hotel.ico')
+	#bookingscreen.iconbitmap('hotel.ico')
 	bookingscreen.geometry('1250x350')
 	bookingscreen.config(bg="#222831")
 	Button(bookingscreen, text = "Press to go back", fg = "red", command = delete13).pack()
@@ -984,7 +985,7 @@ def noResult():
 	global screen19
 	screen19 = Toplevel(screen9)
 	screen19.title("No Results")
-	screen19.iconbitmap('error.ico')
+	#screen19.iconbitmap('error.ico')
 	screen19.geometry("200x90")
 	Label(screen19, text = "No Hotel Results Found").pack()
 	Button(screen19, text = "OK", command = delete18).pack()
@@ -995,7 +996,7 @@ def latest_bookings():
 	screen6.attributes('-topmost',False)
 	latestB_screen = Toplevel(screen6)
 	latestB_screen.title('Latest Bookings')
-	latestB_screen.iconbitmap('hotel.ico')
+	#latestB_screen.iconbitmap('hotel.ico')
 	latestB_screen.geometry("915x350")
 	latestB_screen.config(bg="#222831")
 	Button(latestB_screen, text = "Press to go back", fg = "red", command = delete14).pack()
@@ -1062,7 +1063,7 @@ def noBookings():
 	global noBookings
 	noBookings = Toplevel(screen6)
 	noBookings.title("No Results")
-	noBookings.iconbitmap('error.ico')
+	#noBookings.iconbitmap('error.ico')
 	noBookings.geometry("200x90")
 	Label(noBookings, text = "No Bookings Found").pack()
 	Button(noBookings, text = "OK", command = delete27).pack()
@@ -1087,7 +1088,7 @@ def account_details():
 	screen10 = Toplevel(screen6)
 	screen10.title('Account Details')
 	screen10.geometry("400x400")
-	screen10.iconbitmap('hotel.ico')
+	#screen10.iconbitmap('hotel.ico')
 	currentUser=username1
 	Label(screen10, text = "Account Details", fg = "black", bg = "grey", width = "500", height = "3").pack()
 	Label(screen10, text = "").pack()
@@ -1134,7 +1135,7 @@ def error():
     screen7 = Toplevel(screen)
     screen7.geometry("200x90")
     screen7.title("Warning!")
-    screen7.iconbitmap('error.ico')
+   # screen7.iconbitmap('error.ico')
     Label(screen7, text = "All fields must be filled correctly", fg = "red").pack()
     Button(screen7, text = "Ok", command = delete5).pack()
 
@@ -1142,7 +1143,7 @@ def error_email():
     global screen13
     screen13 = Toplevel(screen1)
     screen13.geometry("200x90")
-    screen13.iconbitmap('error.ico')
+    #screen13.iconbitmap('error.ico')
     Label(screen13, text = "Email entered isn't valid", fg = "red").pack()
     Button(screen13, text = "Ok", command = delete).pack()
 
@@ -1151,7 +1152,7 @@ def helpscreen():
     screen8 = Toplevel(screen)
     screen8.title("Help")
     screen8.geometry("900x335")
-    screen8.iconbitmap('hotel.ico')
+    #screen8.iconbitmap('hotel.ico')
     Label(screen8, text = "Help on Registering with us!", fg = "black", bg = "grey", width = "500", height = "3").pack()
     Label(screen8, text = "- Password must be above 6 characters and contain special character", font = ("Calibri", 15), fg = "red").pack()
     Label(screen8, text = "").pack()
@@ -1170,7 +1171,7 @@ def login_success():
     screen3 = Toplevel(screen)
     screen3.title("Success")
     screen3.geometry("150x100")
-    screen3.iconbitmap('hotel.ico')
+    #screen3.iconbitmap('hotel.ico')
     Label(screen3, text = "Login Success").pack()
     Button(screen3, text = "Ok", command = delete2).pack()
 
@@ -1180,7 +1181,7 @@ def session():
 	screen6.attributes('-topmost',True)
 	screen6.title("Dashboard")
 	screen6.geometry("400x400")
-	screen6.iconbitmap('hotel.ico')
+	#screen6.iconbitmap('hotel.ico')
 	conn = sqlite3.connect('database.db')
 	cur =  conn.cursor()
 	cur.execute("SELECT fname FROM mydatabase1 WHERE user_name = (:username_placeholder3)",
@@ -1220,7 +1221,7 @@ def blank_error():
 	screen17 = Toplevel(screen)
 	screen17.title("Error")
 	screen17.geometry("150x100")
-	screen17.iconbitmap('error.ico')
+	#screen17.iconbitmap('error.ico')
 	Label(screen17, text = "Fill in all required fields", fg = 'red').pack()
 	Button(screen17, text = "Ok", command = delete17).pack()
 
@@ -1229,7 +1230,7 @@ def password_error():
     screen4 = Toplevel(screen)
     screen4.title("Error")
     screen4.geometry("150x100")
-    screen4.iconbitmap('error.ico')
+    #screen4.iconbitmap('error.ico')
     Label(screen4, text = "Password not recognized").pack()
     Button(screen4, text = "Ok", command = delete3).pack()
 
@@ -1238,7 +1239,7 @@ def user_not_found():
     screen5 = Toplevel(screen)
     screen5.title("Error")
     screen5.geometry("150x100")
-    screen5.iconbitmap('error.ico')
+    #screen5.iconbitmap('error.ico')
     Label(screen5, text = "User not found").pack()
     Button(screen5, text = "Ok", command = delete4).pack()
 
@@ -1282,7 +1283,7 @@ def hotelOptions():
     screen12 = Toplevel(screen)
     screen12.title("Hotel Options")
     screen12.geometry("630x315")
-    screen12.iconbitmap('hotel.ico')
+    #screen12.iconbitmap('hotel.ico')
     screen12.config(bg="#222831")
     conn = sqlite3.connect('database.db') # connection to the SQL database
     #Create a cursor
@@ -1446,7 +1447,7 @@ def login():
     screen2 = Toplevel(screen)
     screen2.title("Login")
     screen2.geometry("300x250")
-    screen2.iconbitmap('hotel.ico')
+    #screen2.iconbitmap('hotel.ico')
     screen2.config(bg="#222831")
     Label(screen2, text = "Please enter credentials to login", fg = '#8F8A89', bg = "#32e0c4", width = "500", height = "3").pack()
     Label(screen2, text = "",bg="#222831").pack()
@@ -1474,7 +1475,7 @@ def register():
     screen1 = Toplevel(screen)
     screen1.title("Register") 
     screen1.geometry("300x400")
-    screen1.iconbitmap('hotel.ico')
+    #screen1.iconbitmap('hotel.ico')
     screen1.config(bg="#222831")
     Button(screen1, text = "Press to go back", fg = "red", command = delete6).pack()
     global fname
@@ -1523,7 +1524,7 @@ def main_screen():
     screen = Tk()
     screen.geometry("450x310")
     screen.title("Infinity Hotel Bookings System")
-    screen.iconbitmap('hotel.ico')
+    #screen.iconbitmap('hotel.ico')
     screen.config(bg="#222831")
     Label(text = "Infinity Hotels Bookings", fg = '#8F8A89', bg = "#32e0c4", width ="300", height = "2", font = ("Roboto Condensed", 13)).pack()
     Label(text = "",bg="#222831").pack()
